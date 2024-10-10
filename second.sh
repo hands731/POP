@@ -1,6 +1,6 @@
-sudo apt-get install x11vnc -y
+echo 'jmes!20191107' | sudo -S apt-get install x11vnc -y
 echo "1"
-sudo sh -c 'cat <<EOT > /lib/systemd/system/x11vnc.service
+echo 'jmes!20191107' | sudo -S sh -c 'cat <<EOT > /lib/systemd/system/x11vnc.service
 [Unit]
 Description=x11vnc service
 After=display-manager.service network.target syslog.target
@@ -14,24 +14,25 @@ Restart=on-failure
 [Install]
 WantedBy=multi-user.target'
 
-systemctl daemon-reload
-systemctl enable x11vnc.service
-systemctl start x11vnc.service
-sudo sh -c 'cat <<EOT > /etc/lightdm/lightdm.conf
+echo 'jmes!20191107' | sudo -S systemctl daemon-reload
+echo 'jmes!20191107' | sudo -S systemctl enable x11vnc.service
+echo 'jmes!20191107' | sudo -S systemctl start x11vnc.service
+
+echo 'jmes!20191107' | sudo -S sh -c 'cat <<EOT > /etc/lightdm/lightdm.conf
 [SeatDefaults]
 autologin-user=pi
 autologin-user-timeout=0
 user-session=ubuntu
 greeter-session=unity-greeter'
 
-sudo sh -c 'cat <<EOT > /etc/lightdm/lightdm.conf.d/50-myconfig.conf
+echo 'jmes!20191107' | sudo -S sh -c 'cat <<EOT > /etc/lightdm/lightdm.conf.d/50-myconfig.conf
 [SeatDefaults]
 autologin-user=pi'
 
 echo "2"
-sudo mkdir /home/pi/.config/autostart
+echo 'jmes!20191107' | sudo -S mkdir -p /home/pi/.config/autostart
 echo "3"
-sudo sh -c 'cat <<EOT > /home/pi/.config/autostart/kiosk.desktop
+echo 'jmes!20191107' | sudo -S sh -c 'cat <<EOT > /home/pi/.config/autostart/kiosk.desktop
 [Desktop Entry]
 Type=Application
 Name=Kiosk
@@ -40,11 +41,11 @@ X-GNOME-Autostart-enabled=true'
 
 chmod +x kiosk.sh
 
-sudo rm /etc/apt/apt.conf.d/20auto-uprades
-sudo sh -c 'cat <<EOT > /etc/apt/apt.conf.d/20auto-uprades
+echo 'jmes!20191107' | sudo -S rm /etc/apt/apt.conf.d/20auto-uprades
+echo 'jmes!20191107' | sudo -S sh -c 'cat <<EOT > /etc/apt/apt.conf.d/20auto-uprades
 APT::Periodic::Update-Package-Lists "0";
 APT::Periodic::Download-Upgradeable-Packages "0";
 APT::Periodic::AutocleanInterval "0";
 APT::Periodic::Unattended-Upgrade "0";'
 
-sudo reboot
+echo 'jmes!20191107' | sudo -S reboot

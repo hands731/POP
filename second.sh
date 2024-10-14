@@ -47,5 +47,6 @@ APT::Periodic::Update-Package-Lists "0";
 APT::Periodic::Download-Upgradeable-Packages "0";
 APT::Periodic::AutocleanInterval "0";
 APT::Periodic::Unattended-Upgrade "0";'
+echo 'jmes!20191107' | sudo -S pro config set apt_news=false
 
 echo 'jmes!20191107' | sudo -S reboot

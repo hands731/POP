@@ -52,6 +52,7 @@ echo 'jmes!20191107' | sudo -S pro config set apt_news=false
 echo 'jmes!20191107' | sudo -S apt install python3-pip -y
 pip3 install websockets
 echo 'jmes!20191107' | sudo -S apt install sshpass -y
+echo 'jmes!20191107' | sudo -S apt install scrot -y
 
 # crontab 설정 (자동으로 nano 선택 및 작업 수행)
 export VISUAL=nano

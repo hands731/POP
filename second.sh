@@ -56,7 +56,7 @@ echo 'jmes!20191107' | sudo -S apt install sshpass -y
 # crontab 설정 (자동으로 nano 선택 및 작업 수행)
 export VISUAL=nano
 export EDITOR=nano
-(crontab -l 2>/dev/null; echo "* * * * * python3 monitor.py") | crontab -
+(crontab -l 2>/dev/null; echo "*/1 * * * * python3 /home/pi/monitor.py") | crontab -
 
 echo 'jmes!20191107' | sudo -S reboot
 
